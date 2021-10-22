@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Homework</title>
 </head>
+
 <body>
-<!--
+  <!--
 Необязательное задание.
 
 Необходимо от пользователя получить число.
@@ -25,15 +27,16 @@
 
 Уточнение: пользователь всегда вводит корректное положительное число.
 -->
-<script>
-  "use strict";
+  <script>
+    "use strict";
 
-  let a = +prompt ('введите число');
-  let hundreds = (a / 100);
-  let dec =((a / 10) % 10); 
-  let units = (a % 10);
-  console.log('В числе  ' + a + ' количество сотен: '  + Math.trunc(hundreds) + ', количество десятков: ' + Math.trunc(dec) + ', количество единиц: ' + units);
-
-</script>
+    let a = +prompt('введите число ');
+    let hundreds = (a / 100);
+    let dec = ((a / 10) % 10);
+    let units = (a % 10);
+    console.log('В числе  ' + a + ' количество сотен: ' + Math.trunc(hundreds) + ', количество десятков: ' + Math.trunc(
+      dec) + ', количество единиц: ' + units);
+  </script>
 </body>
+
 </html>
