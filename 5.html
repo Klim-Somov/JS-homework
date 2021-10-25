@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>calculator 1.0</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо скопировать и вставить в данный скрипт все функции из 4 задания.
+Необходимо реализовать функцию:
+mathOperation(arg1, arg2, operation);
+Параметры:
+arg1 - первое число.
+arg2 - второе число.
+operation - строка, которая содержит один символ из: "+", "-", "*", "/".
+Функция mathOperation должна вернуть результат операции, который был передан в
+параметр operation для двух первых аргументов (arg1 и arg2).
+Функция mathOperation должна использовать для вычисления функции из 4 задания.
+
+Примеры вызова функции:
+console.log(mathOperation(5, 3, "+")); // 8
+console.log(mathOperation(5, 3, ":)")); // NaN
+
+Функции mathOperation всегда передаются корректные числа, проверки на NaN,
+Infinity делать не нужно, однако, в случае если был передан некорректный
+аргумент в параметр operation, необходимо вернуть NaN.
+
+Необходимо для всех функций прописать комментарии jsdoc https://jsdoc.app/.
+-->
+  <script>
+    "use strict";
+    /**
+     * Считает сумму переданных аргументов.
+     * @param a - Первое число.
+     * @param b - Второе число.
+     * @return Сумма чисел.
+     */
+    function sum(a, b) {
+      return a + b;
+    }
+    /**
+     * Считает разность переданных аргументов.
+     * @param a - Первое число.
+     * @param b - Второе число.
+     * @return Разность чисел. Если числа равны возвращает 0
+     */
+    function diff(a, b) {
+      if (a > b) {
+        return a - b;
+      } else if (b > a) {
+        return b - a;
+      } else {
+        return 0;
+      }
+    }
+    /**
+     * Считает произведение переданных аргументов.
+     * @param {number} a - Первое число.
+     * @param {number} b - Второе число.
+     * @return - Проиведение чисел.
+     */
+    function mult(a, b) {
+      return a * b
+    }
+    /**
+     * Считает частное переданных аргументов.
+     * @param  a - Первое число.
+     * @param  b - Второе число.
+     * @return - Деление чисел.
+     */
+    function dev(a, b) {
+      return a / b
+    }
+    /**
+     * Вычисляет переданное действие переданных аргументов.
+     * @param {*} a - первый аргумент - число 
+     * @param {*} b - второй аргумент - число
+     * @param {*} operation - знак(бинарный оператор) 
+     * @returns - функция возвращает результат вычисления исходя из подставеленных аргументов
+     */
+    function mathOperation(a, b, operation) {
+
+      if (operation === "+") {
+        return sum(a, b);
+      } else if (operation === "-") {
+        return diff(a, b)
+      } else if (operation === "*") {
+        return mult(a, b)
+      } else if (operation === "/") {
+        return dev(a, b)
+      } else {
+        alert(NaN);
+      }
+    }
+
+    let res = (mathOperation(+prompt('первое число'), +prompt('второе число'), prompt('знак')));
+    alert(res);
+  </script>
+</body>
+
+</html>
