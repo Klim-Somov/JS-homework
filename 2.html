@@ -10,57 +10,86 @@
   <!--
 Обязательное задание.
 
-Необходимо из объекта, который лежит в константе post вывести значения, к
-которым приписан комментарий, в консоль.
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
 -->
+
+  <p class="dropdown">Привет :)</p>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      Dropdown button
+    </button>
+    <div class="menu dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+    </div>
+  </div>
+
   <script>
     "use strict";
 
-    const post = {
-      author: "John", // вывести этот текст
-      postId: 23,
-      comments: [{
-          userId: 10,
-          userName: "Alex",
-          text: "lorem ipsum",
-          rating: {
-            likes: 10,
-            dislikes: 2, // вывести это число
-          },
-        },
-        {
-          userId: 5, // вывести это число
-          userName: "Jane",
-          text: "lorem ipsum 2", // вывести этот текст
-          rating: {
-            likes: 3,
-            dislikes: 1,
-          },
-        },
-      ],
+    /*
+    1. Ко всем элементам, имеющим класс "dropdown-item" добавить еще один класс
+    "super-dropdown", необходимо использовать методы forEach и querySelectorAll и
+    свойство classList у элементов.
+     */
+    const dropDownEl = document.querySelectorAll('.dropdown-item');
+    dropDownEl.forEach(el => el.classList.add('super-dropdown'));
+    /*
+    2. У элемента с классом btn необходимо убрать класс "btn-secondary", если он
+    присутствует у этого элемента, либо добавить, если такого класса у элемента
+    не было.
+     */
+    const btnEl = document.querySelector('.btn');
+    btnEl.classList.toggle("btn-secondary");
+
+    /*
+    3. Необходимо удалить класс "dropdown-menu" у элемента, у которого
+    присутствует класс "menu".
+     */
+    document.querySelector('.menu').classList.remove('dropdown-menu');
+    /*
+    4. Используя метод insertAdjacentHTML добавьте после div'a с классом
+    "dropdown" следующую разметку:
+      <a href="#">link</a>
+     */
+    const dDownEl = document.querySelector('div.dropdown');
+    dDownEl.insertAdjacentHTML('afterend', '<a href="#">link</a>');
+    /*
+    5. У элемента с id "dropdownMenuButton" замените id на "superDropdown".
+     */
+    document.getElementById("dropdownMenuButton").id = "superDropdown";
+    /*
+    6. Добавьте атрибут data-dd со значением 3 элементу у которого существует
+    атрибут "aria-labelledby" равный "dropdownMenuButton" используя dataset.
+     */
+    document.querySelector('[aria-labelledby="dropdownMenuButton"]')
+      .dataset.dd = 3;
+    /*
+    7. Удалите атрибут type у элемента с классом "dropdown-toggle".
+     */
+    document.querySelector('.dropdown-toggle').removeAttribute('type');
+    /*
+    8. Выведите в консоль все имеющиеся атрибуты и их значения тега у которого
+    есть все два класса btn и dropdown-toggle.
+    Вывод каждого атрибута и значений должен выглядеть следующим образом (пример):
+    Атрибут "class" содержит значение "btn btn-secondary dropdown-toggle"
+     */
+    let a = document.querySelector('.btn.dropdown-toggle').attributes;
+    
+    for (const attribute of a) {
+
+      console.log(`Атрибут ${attribute.name} содедржит значение ${attribute.value}`);
     };
-    // выведет 'John'
-    console.log(post.author);
-    // обратится к третьему свойству, потом к первому массиву под индексом 0
-    //в этом массиве найдет обьек, найдет его свойство, внутри этого свойства найдет еще одно свойство
-    console.log(post.comments[0].rating.dislikes);
-    // тут как в предыдущем примере, только заходим в массив под индексом 1 и там ищем свойство.
-    console.log(post.comments[1].userId);
-    // закрепили материял)
-    console.log(post.comments[1].text);
+  //**************еще вариант хотел через форич сделать, но не вышло( почету-то этот метод не доступен, а в прототипе его нет**********
+  // let att = document.querySelector('.btn.dropdown-toggle').attributes;
+  // att.forEach(e => {
+  //   console.log(`Атрибут ${e.name} содедржит значение ${e.value}`);
+    
+  // });
 
-    /************Задачка со стhима про обратый вывод********/
-
-    let arr = [4, 56, 456, 1234];
-
-    for (let i = (arr.length - 1); i >= 0; i--) {
-      console.log(arr[i]);
-    }
-
-    const arr2 = [4, 56, 456, 1234];
-    for (let i = 0; i < arr2.length; i++) {
-      console.log(arr[i]);
-    }
   </script>
 </body>
 

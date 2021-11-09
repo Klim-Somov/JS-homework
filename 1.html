@@ -10,27 +10,81 @@
   <!--
 Обязательное задание.
 
-Необходимо с помощью цикла for вывести следующие 11 строк в консоль:
-0 – это ноль
-1 – нечетное число
-2 – четное число
-3 – нечетное число
-…
-10 – четное число
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
 -->
+
+  <a href="#" class="card-link">Card link</a>
+  <a href="#" class="card-link">Another link</a>
+
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title" data-number="100">Card title</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+      <p class="card-text" data-number="50">
+        Some quick example text to build on the card title and make up the bulk of the card's
+        content.
+      </p>
+      <a href="#" id="super_link" class="card-link">Card link</a>
+      <a href="#" class="card-link" data-number="50">Another link</a>
+    </div>
+  </div>
+
   <script>
     "use strict";
 
-    const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    for (let i = 0; i < arr.length; i++) {
-      if (i === 0) {
-        console.log(i + " - это ноль")
-      } else if ((i % 2) === 0) {
-        console.log(i + " - четное число")
-      } else if ((i % 2) !== 0) {
-        console.log(i + " - нечетное число")
-      }
-    }
+    /*
+    1. Найти по id, используя getElementById, элемент с id равным "super_link" и
+    вывести этот элемент в консоль.
+     */
+    const superlinkEl = document.getElementById('.super_link');
+    console.log(superlinkEl);
+    /*
+    2. Внутри всех элементов на странице, которые имеют класс "card-link",
+    поменяйте текст внутри элемента на "ссылка".
+     */
+    const cardLinkEl = document.querySelectorAll('.card-link');
+    // не пойму зачем этот медод замены текста раз он не отображается в браузере, а только в консоли
+    cardLinkEl.textContent = "ссылка";
+    // в чате подсказали серез цикл перебрать для каждого элемента
+    const cL = document.querySelectorAll('.card-link');
+    cL.forEach(el => el.textContent = 'ссылка');
+    console.log(cardLinkEl);
+    /*
+    3. Найти все элементы на странице с классом "card-link", которые лежат в
+    элементе с классом "card-body" и вывести полученную коллекцию в консоль.
+     */
+    const cardBody = document.querySelector('.card-body');
+    console.log(cardBody.querySelectorAll('.card-link'));
+    /*
+    4. Найти первый попавшийся элемент на странице у которого есть атрибут
+    data-number со значением 50 и вывести его в консоль.
+     */
+    console.log(document.querySelector('[data-number = "50"]'));
+    /*
+    5. Выведите содержимое тега title в консоль.
+     */
+    let titleEl = document.querySelector('.card-title');
+    console.log(titleEl.textContent);
+    /*
+    6. Получите элемент с классом "card-title" и выведите его родительский узел
+    в консоль.
+     */
+    console.log(titleEl.parentNode)
+    /*
+    7. Создайте тег `p`, запишите внутри него текст "Привет" и добавьте созданный
+    тег в начало элемента, который имеет класс "card".
+     */
+    let newP = document.createElement('p');
+    newP.textContent = 'Привет';
+    let cardEl = document.querySelector('.card');
+    cardEl.prepend(newP);
+    /*
+    8. Удалите тег h6 на странице.
+     */
+    let h6El = document.querySelector('h6');
+    //h6El.parentElement.removeChild(h6El);
+    h6El.remove();
   </script>
 </body>
 

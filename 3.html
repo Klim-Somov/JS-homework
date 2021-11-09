@@ -10,33 +10,118 @@
   <!--
 Обязательное задание.
 
-Дан массив products, необходимо цену каждого продукта уменьшить на 15% используя
-метод forEach.
+Выполнить все задачи в теге script. Комментарии, в которых написаны задачи, не
+стирать, код с решением задачи пишем под комментарием.
 -->
+
+  <p class="super_element">Привет</p>
+
+  <img src="https://placeimg.com/50/50/animals" alt="">
+  <img src="https://placeimg.com/50/50/arch" alt="">
+  <img src="https://placeimg.com/50/50/nature" alt="">
+  <img src="https://placeimg.com/50/50/people" alt="">
+  <img src="https://placeimg.com/50/50/tech" alt="">
+  <img src="https://placeimg.com/50/50/tech/grayscale" alt="">
+  <img src="https://placeimg.com/50/50/tech/sepia" alt="">
+
+  <br>
+
+  <button>Кнопка</button>
+  <button class="super_element">Кнопка с классом btn</button>
+  <button>Кнопка</button>
+
+  <br>
+
+  <textarea></textarea>
+
+  <br>
+
+  <ul>
+    <li>
+      <button>Кнопка 1</button>
+    </li>
+    <li>
+      <button>Кнопка 2</button>
+    </li>
+    <li>
+      <button>Кнопка 3</button>
+    </li>
+    <li>
+      <button>Кнопка 4</button>
+    </li>
+  </ul>
+
   <script>
     "use strict";
 
-    const products = [{
-        id: 3,
-        price: 200,
-      },
-      {
-        id: 4,
-        price: 900,
-      },
-      {
-        id: 1,
-        price: 1000,
-      },
-    ];
+    /*
+    1. Необходимо вывести сообщение в консоль "все теги прогрузились", когда все
+    теги будут созданы браузером.
+    */
+    document.addEventListener('DOMContentLoaded', () => console.log("все теги прогрузились"));
 
+    /*
+    2. Необходимо вывести сообщение в консоль "страница загрузилась", когда все
+    ресурсы страницы будут загружены.
+    */
+    window.addEventListener('load', () => console.log("страница загрузилась"));
 
-    // вроде работает, но думается можно короче как то записать и проще)
-    products.forEach((elem) => {
-      (elem.price) = (elem.price) - ((elem.price) / 100) * 15;
+    /*
+    3. При клике на какой-либо тег на странице в консоль должно выводиться
+    сообщение наподобии:
+    Класс "super_element" присутствует в элементе "div".
+    сообщение должно определять присутствует или отсутвтует класс "super_element"
+    у элемента, а также выводить в нижнем регистре верный тег в данной строке, по
+    которому был совершен клик.
+    */
+
+    //*************ой чувствую тут говнокод))**********
+    document.addEventListener('click', event => {
+      let elEl = event.target.classList
+      if (elEl.contains("super_element")) {
+        console.log(`у элемента ${event.target.tagName.toLowerCase()} присутстствует класс super_element`);
+      } else(console.log(`у элемента ${event.target.tagName.toLowerCase()} отсутстствует класс super_element`));
     })
-    // не смог вывести сразу в консоль все измененные элементы. какой метод можно применить?
-    console.log(products[2].price);
+    /*
+    4. Сделайте, чтобы при наведении на textarea в консоли появлялось сообщение:
+    "Вы навели на textarea."
+     */
+    document.querySelector('textarea').addEventListener('mouseover', () =>
+      console.log("Вы навели на textarea."));
+    /*
+    5. Необходимо повесить событие клика на тег ul. В обработчике события в
+    консоль необходимо выводить текст, который записан внутри элемента кнопки,
+    по которой был произведен клик.
+    Если клик был не по кнопке, то ничего выводить не нужно.
+     */
+    const ulEl = document.querySelector('ul');
+    //***********не понимаю почету BUTTON нужно писать в верхнем регистре...****************
+    ulEl.addEventListener('click', event => {
+      if (event.target.tagName !== "BUTTON") {
+        return;
+      }
+      console.log(event.target.textContent);
+    });
+    /*
+    6. Вопрос: Почему в console.log пишется сначала текст из 5 задания и только
+    потом выводится текст из 3 задания, если мы кликаем по кнопкам в ul?
+    Ответ необходимо написать здесь же, под этим комментарием, своими словами.
+    */
+    //кнопка на которую мы повесили событие находится внутри списка, как бы глубже.
+    // а события так работают: сначала оно ныряет в родитель до таргета, отрабатывает, 
+    //а потом всплывает к родителю, и отрабатывает там.
+
+    /*
+    7. С помощью JS необходимо изменить цвет заднего фона каждого второго тега li.
+     */
+
+    let r = document.querySelectorAll('li');
+    for (let i = 0; i < r.length; i++) {
+      if (i % 2 !== 0) {
+        r[i].style.backgroundColor = "red"
+      }
+
+    }
   </script>
 </body>
 
