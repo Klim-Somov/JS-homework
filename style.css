@@ -1,0 +1,68 @@
+#datecalc {
+    display: flex;
+    flex-direction:column;
+    gap: 15px;
+    background-color: rgb(144, 182, 169);
+    align-items: center;
+    padding:15px;
+    border-radius: 10px;
+    height: 360px;
+    width: 300px;
+    margin: 0 auto;
+    
+    
+}
+body {
+    color: #fff;
+    background-color: rgba(134, 111, 111, 0.933);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-top: 5%;
+   
+}
+
+.timer {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    
+    background-color: rgb(144, 182, 169);
+    align-items: center;
+    padding:15px;
+    height: 360px;
+    width: 300px;
+    margin: 0 auto;
+
+}
+.time {
+    font-size: 70px;
+}
+
+.closed-open {
+    display: none !important;
+}
+.side-menu-btn {
+    width: 100px;
+    height: 40px;
+    position: absolute;
+    bottom: -50px;
+}
+button {
+    border-radius: 10px;
+    border:none;
+    background-color: rgb(54, 96, 102);
+    color: white;
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+input {
+    border: none;
+    border-radius: 10px;
+    padding:10px;
+}

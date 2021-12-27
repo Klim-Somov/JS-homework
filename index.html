@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ==" crossorigin="anonymous"></script>
+  <script type="module" src="./js/main.js"></script>
+</head>
+
+<body>
+  <form id="datecalc" class="closed-open form items ">
+    <h3>Калькулятор дат</h3>
+    <label>
+      <strong>Первая дата:</strong>
+      <input type="date" name="firstDate" />
+    </label>
+    <label>
+      <strong>Вторая дата:</strong>
+      <input type="date" name="secondDate" />
+    </label>
+    <button type="submit">Расчитать промежуток</button>
+    <p id="datecalc__result"></p>
+  </form>
+  <div class="timer-wraper">
+    
+    <div class=" timer items " >
+      <h3>Таймер</h3>
+      <input id="time-input" type="number" placeholder = 'Введите секунды'>
+      <button id="start">Старт</button>
+      <button id="stop">Стоп</button>
+      <button id="reset">Очистить</button>
+      <div class="time"></div>
+    </div>
+  </div>
+<button class="side-menu-btn" >калькулятор/таймер</button>
+
+</body> 
+
+</html>
